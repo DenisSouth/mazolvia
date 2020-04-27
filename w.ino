@@ -3,7 +3,7 @@
 volatile unsigned long   oldTime = micros();
 volatile unsigned long  currentTime = micros();
 
-const int datalen = 50;
+const int datalen = 100;
 volatile  unsigned long data[datalen] = {};
 volatile int counter = 0;
 
@@ -35,8 +35,12 @@ void by_timer() {
 void by_interrupt() {
   if (counter < datalen) {
     currentTime = micros(); //мс от вызова
+
+
+   
     data[counter] = currentTime - oldTime; //добавить в массив (старое время минус текущее)  
-    counter = counter + 1;
+     data[counter+1] = digitalRead(2);
+    counter = counter + 2;
     oldTime = currentTime; //обовить минус текущее время
     MsTimer2::start(); //если после последнего вызова прошло н секунд - вызовится by_timer()
   }
