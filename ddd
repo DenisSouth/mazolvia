@@ -1,0 +1,65 @@
+#include <MsTimer2.h>
+const int datalen = 18; //18
+
+volatile unsigned long synch_data[datalen] = {};
+volatile int synch_counter = 0;
+
+//есть ли что то кроме нулей?
+boolean isnone(unsigned long thedata[datalen]) {
+    noInterrupts(); //отключить прерывания
+    for (int i = 0; i < datalen; i++) {
+        if (thedata[i] > 0) {
+            interrupts(); //включить прерывания
+            return true;
+        }
+    }
+    interrupts(); //включить прерывания
+    return false;
+}
+
+
+void by_timer() {
+    noInterrupts(); //отключить прерывания
+    if (isnone(synch_data)) {
+
+        int index = 0;
+        uint8_t acc = 0;
+
+//        while (index < datalen) {
+            acc = 0;
+            for (int i = 0; i < 8; i++) {
+                acc = acc << 1;
+                if ((synch_data[index + i]) == 1) {
+                    acc |= 1;
+                }
+            }
+
+            Serial.println(acc, HEX); //печать первых восьми байт это убирает девятый бит из обоих байтов и уменьшает ошибку
+         // 8 байт + стоповый  +  8 байт + стоповый  
+    }
+   
+    memset(synch_data, 0, sizeof(synch_data)); //очистить вывод
+    synch_counter = 0; //очистить счетчик
+    interrupts(); //включить прерывания
+}
+
+void by_synch_interrupt() {
+    noInterrupts(); //отключить прерывания
+    if (synch_counter < datalen) {
+        synch_data[synch_counter] = digitalRead(2);
+        synch_counter = synch_counter + 1;
+        interrupts(); //включить прерывания
+        MsTimer2::start(); //если после последнего вызова прошло н секунд - вызовится by_timer()
+    }
+}
+
+void setup() {
+    Serial.begin(115200);
+    MsTimer2::set(300, by_timer);
+    MsTimer2::start();
+    pinMode(2, INPUT_PULLUP);
+
+    attachInterrupt(1, by_synch_interrupt, RISING); //CHANGE FALLING **RISING
+}
+
+void loop() {}
