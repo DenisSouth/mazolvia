@@ -20,3 +20,7 @@
      https://github.com/DenisSouth/log_analyzer
      two_channel.ino
 <img src = "first_byte.jpg" alt = "first_byte.jpg" height = "300">
+
+### keyboard.ino
+<img src = "keyboard_test.jpg" alt = "keyboard_test.jpg" height = "300">
+
