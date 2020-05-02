@@ -19,6 +19,6 @@
      two_channel.ino
 <img src = "first_byte.jpg" alt = "first_byte.jpg" height = "300">
 
-### keyboard.ino - driver vith terminal output
+### keyboard.ino - driver with terminal output
 <img src = "keyboard_test.jpg" alt = "keyboard_test.jpg" height = "300">
 
