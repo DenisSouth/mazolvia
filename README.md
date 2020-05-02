@@ -12,7 +12,7 @@
 
     Attach  keyboard data (pin 2) to arduino pin 2
     Attach  keyboard clock(pin 3) to arduino pin 3
-    Attach  keyboard vcc (pin 5) to arduino pin 5
+    Attach  keyboard vcc (pin 5) to arduino pin +5v
     Attach  keyboard gnd (pin 4) to arduino pin gnd
 <img src = "mazolvia_pinout.jpg" alt = "mazolvia_pinout.jpg" height = "150">
 
