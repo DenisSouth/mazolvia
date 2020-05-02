@@ -1,1 +1,10 @@
-# mazolvia
+KLAWIATURA KL
+
+DC +5V 0.28A K2 Z4 ll N
+ZN-87/REFA-095
+NR 00346
+MADE IN POLAND
+
+
+Klawiatura MERA-REFA KL-13
+Mazovia 1016, Polish PC XT
