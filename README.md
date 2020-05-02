@@ -8,19 +8,17 @@
     Klawiatura MERA-REFA KL-13
     Mazovia 1016, Polish PC XT
 
-### keyboard.ino - driver vith terminal output
-
+### protocol analysing
     Attach  keyboard data (pin 2) to arduino pin 2
     Attach  keyboard clock(pin 3) to arduino pin 3
     Attach  keyboard vcc (pin 5) to arduino pin +5v
     Attach  keyboard gnd (pin 4) to arduino pin gnd
 <img src = "mazolvia_pinout.jpg" alt = "mazolvia_pinout.jpg" height = "150">
 
-### protocol analysing 
      https://github.com/DenisSouth/log_analyzer
      two_channel.ino
 <img src = "first_byte.jpg" alt = "first_byte.jpg" height = "300">
 
-### keyboard.ino
+### keyboard.ino - driver vith terminal output
 <img src = "keyboard_test.jpg" alt = "keyboard_test.jpg" height = "300">
 
